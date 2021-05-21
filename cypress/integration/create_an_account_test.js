@@ -2,6 +2,7 @@
 import CreateAnAccount from "../pages/create_an_account_page"
 import faker from 'faker'
 
+//text example
 
 describe ('Create account test suit', function(){
 
