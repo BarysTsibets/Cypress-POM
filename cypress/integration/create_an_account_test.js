@@ -48,6 +48,7 @@ describe ('Create account test suit', function(){
 
         ca.ChecknewsletterCheckBox().should('be.checked').and('have.value', '1')
         //cy.get('#newsletter').check().should('be.checked').and('have.value', '1')      //newsletter checkbox
+        
         ca.CheckSpecialOfferCheckbox().should('be.checked').and('have.value', '1')
         //cy.get('#optin').check().should('be.checked').and('have.value', '1')           //special offer check box
 
