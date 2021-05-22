@@ -1,7 +1,8 @@
 /// <reference types = "cypress"/>
-import CreateAnAccount from "../pages/create_an_account_page"
+import CreateAnAccount from "../pages/signUp_page"
 
 describe ('SignUp test suit', function(){
+        const ca =new CreateAnAccount()
 
         before(function(){
             cy.fixture('example').then(function(data){
@@ -9,9 +10,9 @@ describe ('SignUp test suit', function(){
             })
         })
         
-        it('Sign UP SMOKE TEST', function(){   
-        const ca =new CreateAnAccount()
         
+        it('SignUP_New_User SMOKE TEST (Positive)', function(){   
+    
         cy.visit(this.data.baseURL)                                                         // open Main Page
 
         ca.goToSignIn().should('be.visible').click()                                        // go to SignIn Page
@@ -23,8 +24,8 @@ describe ('SignUp test suit', function(){
         ca.clickCreateAnAccountBtn()
         //cy.get('#SubmitCreate > span').click()
         
-        cy.wait(8000)
-        ca.CreateAnAccountTextPresented().should('contain', 'Create an account')          // 'CREATE AN ACCOUNT' text presented
+        //cy.wait(8000)
+        ca.CreateAnAccountTextPresented().should('contain', 'Create an account', {timeout:8000})          // 'CREATE AN ACCOUNT' text presented
         //cy.get('.page-heading').should('contain', 'Create an account')   
                        
         ca.MrRadiobutton().should('not.be.checked').click()
@@ -91,7 +92,32 @@ describe ('SignUp test suit', function(){
         //cy.get('#submitAccount > span').should('be.visible').click()                   //click Register button
 
         cy.get('.page-heading').should('have.text', 'My account')
-        cy.title().should('eq', 'My account - My Store')                               // Account Created Page verification
+        cy.title().should('eq', 'My account - My Store')                                // Account Created Page verification
+        cy.get('.account > span').should('have.text', this.data.full_name)                 // Last Name verification of created User
 
     })
+
+    it('SignUP_Duplicate_User SMOKE TEST', function(){ 
+
+        
+        cy.visit(this.data.baseURL)                                                         // open Main Page
+
+        ca.goToSignIn().should('be.visible').click()                                        // go to SignIn Page
+        //cy.get('.login').should('be.visible').click()
+     
+        ca.enterEmailToCreateAccount(this.data.test_signUP_email)
+        //cy.get('#email_create').clear().type('fakeemail123@gmail.com')                   //input email to start create account
+        
+        ca.clickCreateAnAccountBtn()
+        //cy.get('#SubmitCreate > span').click()
+
+
+
+
+      })
+
+
+
 })
+
+
