@@ -2,8 +2,9 @@
   "baseURL"  : "http://automationpractice.com/index.php",
   "signInPage" : "http://automationpractice.com/index.php?controller=authentication&back=my-account",
 
+    "test_signUP_email": "signUp102@gmail.com",
 
-    "test_email": "fakeemail126@gmail.com",
+    "test_signIn_email": "fakeemail128@gmail.com",
     "password": "123456",
 
     "f_name" : "Bob",

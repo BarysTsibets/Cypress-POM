@@ -1,7 +1,7 @@
 /// <reference types = "cypress"/>
 import CreateAnAccount from "../pages/create_an_account_page"
 
-describe ('Create account test suit', function(){
+describe ('SignUp test suit', function(){
 
         before(function(){
             cy.fixture('example').then(function(data){
@@ -16,11 +16,8 @@ describe ('Create account test suit', function(){
 
         ca.goToSignIn().should('be.visible').click()                                        // go to SignIn Page
         //cy.get('.login').should('be.visible').click()
-
-        //ca.visitSignInPage(this.data.signInPage)
-        //cy.visit('http://automationpractice.com/index.php?controller=authentication&back=my-account')
      
-        ca.enterEmailToCreateAccount(this.data.test_email)
+        ca.enterEmailToCreateAccount(this.data.test_signUP_email)
         //cy.get('#email_create').clear().type('fakeemail123@gmail.com')                   //input email to start create account
         
         ca.clickCreateAnAccountBtn()
@@ -39,7 +36,7 @@ describe ('Create account test suit', function(){
         ca.fillLastName(this.data.l_name)
         //cy.get('#customer_lastname').clear().type('Marley')                             // input customer 'Last Name"
         
-        ca.emailPlaceholder().should('have.value', this.data.test_email)                  //verify email placeholder
+        ca.emailPlaceholder().should('have.value', this.data.test_signUP_email)                  //verify email placeholder
 
         ca.fillPassword(this.data.password)
         //cy.get('#passwd').clear().type('123456')                                        //input password
@@ -66,13 +63,13 @@ describe ('Create account test suit', function(){
         ca.fillCompanyAddress2(this.data.test_address2)
         //cy.get('#address2').clear().type('suit 500')                                   //inpyt Company suit
 
-        ca.fillCompanyCity('Los Angeles')
+        ca.fillCompanyCity(this.data.test_city)
         //cy.get('#city').clear().type('Los Angeles')                                    //inpyt Company City
         
         ca.selectState('2').should('contain.value', '2') 
         //cy.get('#id_state').select('2').should('contain.value', '2')                   // Select State 'Alaska'
         
-        ca.fillPostCode('90028')
+        ca.fillPostCode(this.data.test_zip)
         //cy.get('#postcode').clear().type('90028')                                      //inpyt Zip Code
 
         ca.checkPreselectedCountry().should('have.value', '21')
@@ -93,7 +90,7 @@ describe ('Create account test suit', function(){
         cy.get(ca.registerBtn).should('be.visible').click()
         //cy.get('#submitAccount > span').should('be.visible').click()                   //click Register button
 
-
+        cy.get('.page-heading').should('have.text', 'My account')
         cy.title().should('eq', 'My account - My Store')                               // Account Created Page verification
 
     })
