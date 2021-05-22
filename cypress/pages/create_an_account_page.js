@@ -6,7 +6,7 @@ signInButton = '.login'
 loginPageCreateAcountField = '#email_create'
 CreateAnAccountButton = '#SubmitCreate > span'
 CreateAnAccountText = '.page-heading'
-Mr = '#id_gender1'
+MrRadioButton = '#id_gender1'
 emailPlaceHolder = '#email'
 FirstNameField = '#customer_firstname'
 LastNameField = '#customer_lastname'
@@ -53,7 +53,7 @@ CreateAnAccountTextPresented(){
 }
 
 MrRadiobutton(){
-    return cy.get(this.Mr)
+    return cy.get(this.MrRadioButton)
 }
 
 emailPlaceholder(){
