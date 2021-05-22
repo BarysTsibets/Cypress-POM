@@ -16,6 +16,7 @@
     "test_city" : "Los Angeles",
     "test_zip" : "90028",
     "test_home_phone": 3235555555,
-    "test_mobile_phone": 3237772288
+    "test_mobile_phone": 3237772288,
+    "duplicateAccErrorText" : "An account using this email address has already been registered. Please enter a valid password or request a new one. "
 
 }
