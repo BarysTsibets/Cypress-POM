@@ -1,5 +1,5 @@
 /// <reference types = "cypress"/>
-import CreateAnAccount from "../pages/create_an_account_page"
+import CreateAnAccount from "../pages/signUp_page"
 
 describe ('SignIn test suit', function(){
 
@@ -10,7 +10,7 @@ describe ('SignIn test suit', function(){
     })
 
     it('SignIn SMOKE TEST', function(){
-        
+
 
         cy.visit('http://automationpractice.com/index.php')
         const ca =new CreateAnAccount()

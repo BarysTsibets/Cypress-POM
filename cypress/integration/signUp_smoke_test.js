@@ -99,18 +99,18 @@ describe ('SignUp test suit', function(){
 
     it('SignUP_Duplicate_User SMOKE TEST', function(){ 
 
-        
+
         cy.visit(this.data.baseURL)                                                         // open Main Page
 
         ca.goToSignIn().should('be.visible').click()                                        // go to SignIn Page
         //cy.get('.login').should('be.visible').click()
      
-        ca.enterEmailToCreateAccount(this.data.test_signUP_email)
+        ca.enterEmailToCreateAccount(this.data.test_signIn_email)
         //cy.get('#email_create').clear().type('fakeemail123@gmail.com')                   //input email to start create account
         
         ca.clickCreateAnAccountBtn()
         //cy.get('#SubmitCreate > span').click()
-
+            
 
 
 
