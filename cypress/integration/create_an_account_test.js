@@ -12,11 +12,16 @@ describe ('Create account test suit', function(){
         it('Sign UP SMOKE TEST', function(){   
         const ca =new CreateAnAccount()
         
-        ca.visitSignInPage('http://automationpractice.com/index.php?controller=authentication&back=my-account')
+        cy.visit(this.data.baseURL)                                                         // open Main Page
+
+        ca.goToSignIn().should('be.visible').click()                                        // go to SignIn Page
+        //cy.get('.login').should('be.visible').click()
+
+        //ca.visitSignInPage(this.data.signInPage)
         //cy.visit('http://automationpractice.com/index.php?controller=authentication&back=my-account')
      
         ca.enterEmailToCreateAccount(this.data.test_email)
-        //cy.get('#email_create').clear().type('fakeemail123@gmail.com')            //input email to start create account
+        //cy.get('#email_create').clear().type('fakeemail123@gmail.com')                   //input email to start create account
         
         ca.clickCreateAnAccountBtn()
         //cy.get('#SubmitCreate > span').click()
@@ -48,7 +53,7 @@ describe ('Create account test suit', function(){
 
         ca.ChecknewsletterCheckBox().should('be.checked').and('have.value', '1')
         //cy.get('#newsletter').check().should('be.checked').and('have.value', '1')      //newsletter checkbox
-        
+
         ca.CheckSpecialOfferCheckbox().should('be.checked').and('have.value', '1')
         //cy.get('#optin').check().should('be.checked').and('have.value', '1')           //special offer check box
 

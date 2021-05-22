@@ -2,6 +2,7 @@
 
 class CreateAnAccount{
 
+signInButton = '.login'
 loginPageCreateAcountField = '#email_create'
 CreateAnAccountButton = '#SubmitCreate > span'
 CreateAnAccountText = '.page-heading'
@@ -31,8 +32,12 @@ registerBtn = '#submitAccount > span'
     
 
 
-visitSignInPage(){
-   return cy.visit('http://automationpractice.com/index.php?controller=authentication&back=my-account')
+visitSignInPage(url){
+   return cy.visit(url)
+}
+
+goToSignIn(){
+    return cy.get(this.signInButton)
 }
 
 enterEmailToCreateAccount(email){
