@@ -1,7 +1,11 @@
 {
-  
+  "baseURL"  : "http://automationpractice.com/index.php",
+  "signInPage" : "http://automationpractice.com/index.php?controller=authentication&back=my-account",
+
+
     "test_email": "fakeemail126@gmail.com",
     "password": "123456",
+
     "f_name" : "Bob",
     "l_name" : "Marley",
     "company_name" : "ABC company",
