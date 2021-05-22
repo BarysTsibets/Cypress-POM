@@ -21,21 +21,22 @@ describe ('Create account test suit', function(){
         ca.clickCreateAnAccountBtn()
         //cy.get('#SubmitCreate > span').click()
         
-        cy.wait(10000)
+        cy.wait(8000)
         ca.CreateAnAccountTextPresented().should('contain', 'Create an account')          // 'CREATE AN ACCOUNT' text presented
         //cy.get('.page-heading').should('contain', 'Create an account')   
                        
         ca.MrRadiobutton().should('not.be.checked').click()
         //cy.get('#id_gender1').should('be.visible').should('not.be.checked').click()     // Click radiobutton 'Mr' 
         
-        ca.fillFirstName('Bob')
+        ca.fillFirstName(this.data.f_name)
         //cy.get('#customer_firstname').clear().type('Bob')                               // input customer 'First Name"
         
-        ca.fillLastName('Marley')
+        ca.fillLastName(this.data.l_name)
         //cy.get('#customer_lastname').clear().type('Marley')                             // input customer 'Last Name"
         
+        ca.emailPlaceholder().should('have.value', this.data.test_email)                  //verify email placeholder
 
-        ca.fillPassword('123456')
+        ca.fillPassword(this.data.password)
         //cy.get('#passwd').clear().type('123456')                                        //input password
 
         ca.selectDay('27').should('have.value', '27') 
@@ -50,13 +51,13 @@ describe ('Create account test suit', function(){
         ca.CheckSpecialOfferCheckbox().should('be.checked').and('have.value', '1')
         //cy.get('#optin').check().should('be.checked').and('have.value', '1')           //special offer check box
 
-        ca.fillCompanyName('ABC company')
+        ca.fillCompanyName(this.data.company_name)
         //cy.get('#company').clear().type('ABC company')                                 // input Company name
         
-        ca.fillCompanyAddress1('100 hollywood blvd, 90028')
+        ca.fillCompanyAddress1(this.data.test_address1)
         //cy.get('#address1').clear().type('100 hollywood blvd, 90028')                  //inpyt Company adress
         
-        ca.fillCompanyAddress2('suit 500')
+        ca.fillCompanyAddress2(this.data.test_address2)
         //cy.get('#address2').clear().type('suit 500')                                   //inpyt Company suit
 
         ca.fillCompanyCity('Los Angeles')
@@ -74,12 +75,11 @@ describe ('Create account test suit', function(){
         ca.fillAdditionalInfo('Hello world')
         //cy.get('#other').clear().type('Hello World')                                   //type additional information
         
-        ca.fillHomePhone('323 12345678')
+        ca.fillHomePhone(this.data.test_home_phone)
         //cy.get('#phone').clear().type('323 12345678')                                  //type Home Phone
         
-        ca.fillMobilePhone('323 12345678')
+        ca.fillMobilePhone(this.data.test_mobile_phone)
         //cy.get('#phone_mobile').clear().type('323 12345678')                           //type Mobile phone
-
 
         ca.fillAliasAddress().should('have.value', 'My address').clear().type('test text')
         //cy.get('#alias').should('have.value', 'My address').clear().type('test text')
