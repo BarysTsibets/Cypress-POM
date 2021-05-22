@@ -1,30 +1,31 @@
 /// <reference types = "cypress"/>
 import CreateAnAccount from "../pages/create_an_account_page"
-import faker from 'faker'
-
-//text example
 
 describe ('Create account test suit', function(){
 
-        it('Create An Account Smoke test', function(){
-            
-        //const my_faker = faker.internet.email()
+        before(function(){
+            cy.fixture('example').then(function(data){
+                this.data = data
+            })
+        })
+        
+        it('Sign UP SMOKE TEST', function(){   
         const ca =new CreateAnAccount()
         
         ca.visitSignInPage('http://automationpractice.com/index.php?controller=authentication&back=my-account')
         //cy.visit('http://automationpractice.com/index.php?controller=authentication&back=my-account')
      
-        
-        ca.enterEmailToCreateAccount('fakeemail123@gmail.com')
-        //cy.get('#email_create').clear().type('fakeemail123@gmail.com')              //input email to start create account
+        ca.enterEmailToCreateAccount(this.data.test_email)
+        //cy.get('#email_create').clear().type('fakeemail123@gmail.com')            //input email to start create account
         
         ca.clickCreateAnAccountBtn()
         //cy.get('#SubmitCreate > span').click()
-
+        
+        cy.wait(10000)
         ca.CreateAnAccountTextPresented().should('contain', 'Create an account')          // 'CREATE AN ACCOUNT' text presented
         //cy.get('.page-heading').should('contain', 'Create an account')   
                        
-        ca.MrRadiobutton().should('be.visible').should('not.be.checked').click()
+        ca.MrRadiobutton().should('not.be.checked').click()
         //cy.get('#id_gender1').should('be.visible').should('not.be.checked').click()     // Click radiobutton 'Mr' 
         
         ca.fillFirstName('Bob')

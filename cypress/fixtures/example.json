@@ -1,4 +1,5 @@
 {
-    "email": "admin@yourstore.com",
-  "password": "admin"
+  
+    "test_email": "fakeemail125@gmail.com",
+    "password": "123456"
 }
