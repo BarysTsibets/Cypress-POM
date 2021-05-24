@@ -28,9 +28,13 @@
 
 
 //LogIn custom command (function)
+
+
+
 Cypress.Commands.add('login_function', (email, password) => {
 
-        cy.visit('https://admin-demo.nopcommerce.com/login')
+       
+        cy.visit('http://automationpractice.com/index.php?controller=authentication&back=my-account')
 
         cy.get('#Email').clear().type(email)                                                                 // email stored in this.data.email variable
         cy.get('#Password').clear().should('be.visible').should('be.enabled').type(password)                // password stored in this.data.password variable

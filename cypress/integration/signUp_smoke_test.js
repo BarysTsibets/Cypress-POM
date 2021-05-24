@@ -1,10 +1,10 @@
 /// <reference types = "cypress"/>
-import CreateAnAccount from "../pages/signUp_page"
+import SignUp from "../pages/signUp_page"
 
 describe ('SignUp test suit', function(){
-        const ca =new CreateAnAccount()
+        const ca =new SignUp()
 
-        before(function(){
+        this.beforeEach(function(){
             cy.fixture('example').then(function(data){
                 this.data = data
             })
@@ -89,16 +89,16 @@ describe ('SignUp test suit', function(){
         //cy.get('#alias').should('have.value', 'My address').clear().type('test text')
 
         cy.get(ca.registerBtn).should('be.visible').click()
-        //cy.get('#submitAccount > span').should('be.visible').click()                   //click Register button
+        //cy.get('#submitAccount > span').should('be.visible').click()                     //click Register button
 
         cy.get('.page-heading').should('have.text', 'My account')
-        cy.title().should('eq', 'My account - My Store')                                // Account Created Page verification
+        cy.title().should('eq', 'My account - My Store')                                   // Account Created Page verification
         cy.get('.account > span').should('have.text', this.data.full_name)                 // Last Name verification of created User
 
     })
 
-    it('SignUP_Duplicate_User SMOKE TEST', function(){ 
 
+    it.only('SignUP_Duplicate_User SMOKE TEST', function(){ 
 
         cy.visit(this.data.baseURL)                                                         // open Main Page
 
@@ -110,10 +110,9 @@ describe ('SignUp test suit', function(){
         
         ca.clickCreateAnAccountBtn()
         //cy.get('#SubmitCreate > span').click()
-            
 
-
-
+        ca.ErrorMessage().should('be.visible')                                            // Verify that error message visible (Duplicate signUP)
+        ca.ErrorText().should('have.text', this.data.duplicateAccErrorText)               // Verify that error text visible   (Duplicate signUP)
       })
 
 
