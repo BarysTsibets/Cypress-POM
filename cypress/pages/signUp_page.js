@@ -1,9 +1,9 @@
 /// <reference types = "cypress"/>
 
-class CreateAnAccount{
+class SignUp{
 
 signInButton = '.login'
-loginPageCreateAcountField = '#email_create'
+signinPageCreateAcountField = '#email_create'
 CreateAnAccountButton = '#SubmitCreate > span'
 CreateAnAccountText = '.page-heading'
 MrRadioButton = '#id_gender1'
@@ -28,20 +28,19 @@ homePhoneNumber = '#phone'
 mobilePhoneNumber = '#phone_mobile'
 aliasAddress = '#alias'
 registerBtn = '#submitAccount > span'
+errorMessage_Duplicate_Account = '#create_account_error'
+errorText_Duplicate_Account = 'ol > li'
 
     
 
 
-visitSignInPage(url){
-   return cy.visit(url)
-}
 
 goToSignIn(){
     return cy.get(this.signInButton)
 }
 
 enterEmailToCreateAccount(email){
-    return cy.get(this.loginPageCreateAcountField).clear().type(email) 
+    return cy.get(this.signinPageCreateAcountField).clear().type(email) 
 }
 
 clickCreateAnAccountBtn(){
@@ -138,6 +137,15 @@ RegisterButton(){
     return cy.get(this.registerBtn)
 }
 
+ErrorMessage(){
+    return cy.get(this.errorMessage_Duplicate_Account)
 }
 
-export default CreateAnAccount
+ErrorText(){
+    return cy.get('ol > li')
+}
+
+
+}
+
+export default SignUp

@@ -1,35 +1,45 @@
 /// <reference types = "cypress"/>
-import CreateAnAccount from "../pages/signUp_page"
+import SignUp from "../pages/signUp_page"
+import SignIn from "../pages/sign_in_page"
 
 describe ('SignIn test suit', function(){
 
-    before(function(){
+    //const sUp =new SignUp()
+    const sIn = new SignIn()
+
+    this.beforeEach(function(){
         cy.fixture('example').then(function(data){
             this.data = data
         })
     })
 
     it('SignIn SMOKE TEST', function(){
-
-
-        cy.visit('http://automationpractice.com/index.php')
-        const ca =new CreateAnAccount()
         
-        cy.visit(this.data.baseURL)                                                         // open Main Page
+      
+        cy.visit(this.data.signInPage)                                            // open SignIn Page
 
-        ca.goToSignIn().should('be.visible').click()                                        // go to SignIn Page
-        //cy.get('.login').should('be.visible').click()
+        sIn.enterEmailToSignIn(this.data.test_signIn_email)                       //fill email in SignIn field
 
-        cy.get('#email').clear().type(this.data.test_signIn_email)  // fill email in SignIn field
 
-        cy.get('#passwd').clear().type(this.data.password)
+        sIn.enterPasswordToSignIn(this.data.password)                             //fill password in SignIn field
 
-        cy.get('#SubmitLogin > span').should('be.visible').click()
+        cy.get(sIn.signInBtn).should('be.visible').click()                        //click SignIn Button
+
 
         cy.title().should('be.eq', 'My account - My Store')
-        cy.get('.page-heading').should('have.text', 'My account')
-        cy.get('.account > span').should('have.text', 'Bob Marley')
-        
 
+        cy.get('.page-heading').should('have.text', 'My account')                  
+
+        sIn.consumerName().should('have.text', this.data.full_name)               //assert consumer name after SignIn
+        
     })
+
+
+
+    it('SignIn: go to Order_History_and_details',function(){
+
+        cy.login_function(this.data.test_signIn_email, this.data.password)
+    })
+
+
 })
