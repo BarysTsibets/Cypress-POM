@@ -7,8 +7,10 @@ signInPageEmailField = '#email'
 signInPagePasswordField = '#passwd'
 signInBtn = '#SubmitLogin > span'
 user_name = '.account > span'
-Order_history_and_details_Btn = 'Order_history_and_details'
-My_credit_slips_Btn = 'My_credit_slips'
+Order_history_and_details_Btn = 'Order history and details'
+Order_History_PageTitle = 'Order history - My Store'
+My_Credit_Slips_Btn = 'My credit slips'
+My_credit_slips_PageTitle = 'Order slip - My Store'
 My_addresses_Btn = 'My addresses'
 My_personal_information_Btn = 'My personal information'
 My_wishlists_btn = 'My wishlists'
@@ -28,8 +30,8 @@ consumerName(){
     return cy.get(this.user_name)
 }
 
-click_Order_history_and_details(){
-    return cy.contains(this.Order_history_and_details_Btn).click()
+Order_history_and_details(){
+    return cy.contains(this.Order_history_and_details_Btn)
 }
 
 click_My_credit_slips(){
