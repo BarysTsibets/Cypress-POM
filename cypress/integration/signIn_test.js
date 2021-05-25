@@ -25,7 +25,6 @@ describe ('SignIn test suit', function(){
 
         cy.get(sIn.signInBtn).should('be.visible').click()                        //click SignIn Button
 
-
         cy.title().should('be.eq', 'My account - My Store')
 
         cy.get('.page-heading').should('have.text', 'My account')                  
@@ -36,7 +35,7 @@ describe ('SignIn test suit', function(){
 
 
 
-    it('SignIn: go to Order_History_and_details',function(){
+    it('SignIn: + flow to Order_History_and_details',function(){
 
         cy.visit(this.data.signInPage)                                               // open SignIn Page
         sIn.enterEmailToSignIn(this.data.test_signIn_email)                          //fill email in SignIn field
@@ -49,32 +48,29 @@ describe ('SignIn test suit', function(){
 
     })
 
-    it('SignIn: go to Order_History_and_details',function(){
+    it('SignIn: + flow to Order_History_and_details',function(){
 
         cy.visit(this.data.signInPage)                                               // open SignIn Page
         sIn.enterEmailToSignIn(this.data.test_signIn_email)                          //fill email in SignIn field
         sIn.enterPasswordToSignIn(this.data.password)                                //fill password in SignIn field
         cy.get(sIn.signInBtn).should('be.visible').click()                           //click SignIn Button
       
-
         cy.contains(sIn.Order_history_and_details_Btn).should('be.visible').click()  //go to Order_history_and_details page
 
         cy.title().should('eq', sIn.Order_History_PageTitle)                         //assert opened page title
 
     })
 
-
-    it('SignIn: go to My_Credit_Slips',function(){
+    it.only('SignIn: + flow to My_Wishlists',function(){
 
         cy.visit(this.data.signInPage)                                               // open SignIn Page
         sIn.enterEmailToSignIn(this.data.test_signIn_email)                          //fill email in SignIn field
         sIn.enterPasswordToSignIn(this.data.password)                                //fill password in SignIn field
         cy.get(sIn.signInBtn).should('be.visible').click()                           //click SignIn Button
       
+        cy.contains(sIn.My_Wishlist_Btn).should('be.visible').click()            //go to My_Wishlist page
 
-        cy.contains(sIn.My_Credit_Slips_Btn).should('be.visible').click()            //go to My_credit_slip page
-
-        cy.title().should('eq', sIn.My_credit_slips_PageTitle)                         //assert My_credit_slip page title
+        cy.title().should('eq', sIn.My_WishlistsPageTitle)                         //assert My_Wishlist page title
 
     })
 
@@ -85,7 +81,6 @@ describe ('SignIn test suit', function(){
         sIn.enterPasswordToSignIn(this.data.password)                                //fill password in SignIn field
         cy.get(sIn.signInBtn).should('be.visible').click()                           //click SignIn Button
       
-
         cy.contains(sIn.My_addresses_Btn).should('be.visible').click()               //go to My_address_page page
 
         cy.title().should('eq', sIn.My_address_PageTitle)                            //assert My_address page title
