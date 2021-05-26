@@ -15,7 +15,6 @@ describe ('SignIn test suit', function(){
 
     it('SignIn SMOKE TEST', function(){
         
-      
         cy.visit(this.data.signInPage)                                            // open SignIn Page
 
         sIn.enterEmailToSignIn(this.data.test_signIn_email)                       //fill email in SignIn field
@@ -29,10 +28,8 @@ describe ('SignIn test suit', function(){
 
         cy.get('.page-heading').should('have.text', 'My account')                  
 
-        sIn.consumerName().should('have.text', this.data.full_name)               //assert consumer name after SignIn
-        
+        sIn.consumerName().should('have.text', this.data.full_name)               //assert consumer name after SignIn      
     })
-
 
 
     it('SignIn: + flow to Order_History_and_details',function(){
@@ -45,8 +42,8 @@ describe ('SignIn test suit', function(){
         cy.contains(sIn.Order_history_and_details_Btn).should('be.visible').click()  //go to Order_history_and_details page
 
         cy.title().should('eq', sIn.Order_History_PageTitle)                         //assert opened page title
-
     })
+
 
     it('SignIn: + flow to Order_History_and_details',function(){
 
@@ -58,8 +55,8 @@ describe ('SignIn test suit', function(){
         cy.contains(sIn.Order_history_and_details_Btn).should('be.visible').click()  //go to Order_history_and_details page
 
         cy.title().should('eq', sIn.Order_History_PageTitle)                         //assert opened page title
-
     })
+
 
     it.only('SignIn: + flow to My_Wishlists',function(){
 
@@ -71,8 +68,8 @@ describe ('SignIn test suit', function(){
         cy.contains(sIn.My_Wishlist_Btn).should('be.visible').click()            //go to My_Wishlist page
 
         cy.title().should('eq', sIn.My_WishlistsPageTitle)                         //assert My_Wishlist page title
-
     })
+
 
     it.only('SignIn: go to My_Address',function(){
 
