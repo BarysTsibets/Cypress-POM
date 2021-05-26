@@ -98,7 +98,7 @@ describe ('SignUp test suit', function(){
     })
 
 
-    it.only('SignUP_Duplicate_User SMOKE TEST', function(){ 
+    it('SignUP_Duplicate_User SMOKE TEST', function(){ 
 
         cy.visit(this.data.baseURL)                                                         // open Main Page
 

@@ -34,7 +34,7 @@ describe ('SignIn test suit', function(){
 
     it('SignIn: + flow to Order_History_and_details',function(){
 
-        cy.visit(this.data.signInPage)                                               // open SignIn Page
+        cy.visit(this.data.signInPage)                                               //Open SignIn Page
         sIn.enterEmailToSignIn(this.data.test_signIn_email)                          //fill email in SignIn field
         sIn.enterPasswordToSignIn(this.data.password)                                //fill password in SignIn field
         cy.get(sIn.signInBtn).should('be.visible').click()                           //click SignIn Button
@@ -58,7 +58,7 @@ describe ('SignIn test suit', function(){
     })
 
 
-    it.only('SignIn: + flow to My_Wishlists',function(){
+    it('SignIn: + flow to My_Wishlists',function(){
 
         cy.visit(this.data.signInPage)                                               // open SignIn Page
         sIn.enterEmailToSignIn(this.data.test_signIn_email)                          //fill email in SignIn field
@@ -71,7 +71,7 @@ describe ('SignIn test suit', function(){
     })
 
 
-    it.only('SignIn: go to My_Address',function(){
+    it('SignIn: go to My_Address',function(){
 
         cy.visit(this.data.signInPage)                                               // open SignIn Page
         sIn.enterEmailToSignIn(this.data.test_signIn_email)                          //fill email in SignIn field
