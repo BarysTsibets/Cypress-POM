@@ -12,6 +12,8 @@ drop_Down_Webmaster_text = 'Webmaster'
 customer_Service_ToolTip = 'For any question about a product, an order'
 webmaster_Service_ToolTip= 'If a technical problem occurs on this website'
 email_Field = '#email'
+order_Number = 'Order #123-456'
+
 
 
 
@@ -30,6 +32,12 @@ select_Webmaster_DropDown(){
 enter_Email(mail){
     return cy.get('#email').clear().type(mail)
 }
+
+enter_Order_Reference(order){
+    return cy.get('#id_order').clear().type(order)
+}
+
+
 
 }
 export default ContactUs

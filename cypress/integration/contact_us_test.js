@@ -39,8 +39,11 @@ describe('Contact Us Test Suit', function(){
 
         cu.enter_Email(this.data.test_signIn_email)                                  //fill email adress 
         //cy.get('#email').type(this.data.test_signIn_email)            
-                                      
-        cy.get('#id_order').type('Order #123-456')                                                   //fill order reference text
+
+        cu.enter_Order_Reference(this.data.order_Number)                            //fill order reference text
+        //cy.get('#id_order').type('Order #123-456')                                                   
+
+        
         cy.get('#message').type('Hello World')                                                       //fill any message
         cy.get('#submitMessage').should('be.visible').should('be.enabled').click()                   //click Submit button
         cy.get('.alert').should('be.visible').should('have.text', 'Your message has been successfully sent to our team.')       //assert that success message displayed
