@@ -43,8 +43,10 @@ describe('Contact Us Test Suit', function(){
         cu.enter_Order_Reference(this.data.order_Number)                            //fill order reference text
         //cy.get('#id_order').type('Order #123-456')                                                   
 
+        cu.enter_Message(cu.message_Text)                                                               //fill any message
+        cy.get('#message').type('Hello World')                                                       
+
         
-        cy.get('#message').type('Hello World')                                                       //fill any message
         cy.get('#submitMessage').should('be.visible').should('be.enabled').click()                   //click Submit button
         cy.get('.alert').should('be.visible').should('have.text', 'Your message has been successfully sent to our team.')       //assert that success message displayed
 

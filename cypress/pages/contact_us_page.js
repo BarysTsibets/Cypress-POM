@@ -13,6 +13,8 @@ customer_Service_ToolTip = 'For any question about a product, an order'
 webmaster_Service_ToolTip= 'If a technical problem occurs on this website'
 email_Field = '#email'
 order_Number = 'Order #123-456'
+message_Field = '#message'
+message_Text = 'Hello World'
 
 
 
@@ -26,7 +28,7 @@ select_CustomerService_DropDown(){
 }
 
 select_Webmaster_DropDown(){
-    return cy.get(tis.drop_Down_btn).select(this.webmaster_Service_ToolTip)
+    return cy.get(this.drop_Down_btn).select(this.webmaster_Service_ToolTip)
 }
 
 enter_Email(mail){
@@ -35,6 +37,10 @@ enter_Email(mail){
 
 enter_Order_Reference(order){
     return cy.get('#id_order').clear().type(order)
+}
+
+enter_Message(msg){
+    return cy.get(this.message_Field).clear().type(msg)
 }
 
 
