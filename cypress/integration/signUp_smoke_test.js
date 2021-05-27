@@ -11,7 +11,7 @@ describe ('SignUp test suit', function(){
         })
         
         
-        it('SignUP_New_User SMOKE TEST (Positive)', function(){   
+        it('SignUP_New_User SMOKE TEST', function(){   
     
         cy.visit(this.data.baseURL)                                                         // open Main Page
 

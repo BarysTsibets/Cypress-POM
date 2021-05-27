@@ -1,10 +1,8 @@
 /// <reference types = "cypress"/>
-//import SignUp from "../pages/signUp_page"
 import SignIn from "../pages/sign_in_page"
 
 describe ('SignIn test suit', function(){
 
-    //const sUp =new SignUp()
     const sIn = new SignIn()
 
     this.beforeEach(function(){
