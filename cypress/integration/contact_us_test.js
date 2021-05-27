@@ -11,44 +11,32 @@ describe('Contact Us Test Suit', function(){
         })
     })
 
-
-
     it('Contact Us SMOKE TEST', function(){
 
+        cy.visit(this.data.baseURL)                                                                       //Open main page
 
-        cy.visit(this.data.baseURL)                                                    //Open main page
-
-        cu.click_Contact_Us()
-        //cy.get('#contact-link').click()                       // click on the Contact Us link   
+        cu.click_Contact_Us()                                                                             // click on the Contact Us link                         
     
-        cy.title().should('eq', cu.contact_Us_title)                                // assert 'Contact Us' page title
+        cy.title().should('eq', cu.contact_Us_title)                                                      // assert 'Contact Us' page title
 
-        cy.get(cu.contact_Us_title).should('be.visible').and('have.text', cu.contact_BreadCrumb_Text)    //Assert that 'contact' text shown at the breadcrumbs
+        cy.get(cu.contact_BreadCrumb_Btn).should('be.visible').and('have.text', cu.contact_BreadCrumb_Text)     //Assert that 'contact' text shown at the breadcrumbs
 
-        cu.select_CustomerService_DropDown().should('have.value', '2')                                     // select "customer service" from drop down menu
-        //cy.get('#id_contact').select('Customer service').should('have.value', '2')      
+        cu.select_CustomerService_DropDown().should('have.value', '2')                                     // select "customer service" from drop down menu     
 
+        cy.contains(cu.customer_Service_ToolTip).should('be.visible')                                      // assert that specific tool tip is presented
 
-        cy.contains(cu.customer_Service_ToolTip).should('be.visible')           // assert that specific tool tip is presented
+        cu.select_Webmaster_DropDown().should('have.value', '1')                                           // select 'Webmaster' from drop down                
 
-        cu.select_Webmaster_DropDown().should('have.value', '1')               // select 'Webmaster' from drop down
-        //cy.get('#id_contact').select('Webmaster').should('have.value', '1')                 
+        cy.contains(cu.webmaster_Service_ToolTip).should('be.visible')                                     // assert that specific tool tip is presenteds
 
+        cu.enter_Email(this.data.test_signIn_email)                                                        //fill email adress          
 
-        cy.contains(cu.webmaster_Service_ToolTip).should('be.visible')            // assert that specific tool tip is presenteds
+        cu.enter_Order_Reference(this.data.order_Number)                                                   //fill order reference text                                               
 
-        cu.enter_Email(this.data.test_signIn_email)                                  //fill email adress 
-        //cy.get('#email').type(this.data.test_signIn_email)            
+        cu.enter_Message(cu.message_Text)                                                                  //fill any message                                             
 
-        cu.enter_Order_Reference(this.data.order_Number)                            //fill order reference text
-        //cy.get('#id_order').type('Order #123-456')                                                   
+        cy.get(cu.submit_Btn).should('be.visible').should('be.enabled').click()                            //click Submit button
 
-        cu.enter_Message(cu.message_Text)                                                               //fill any message
-        cy.get('#message').type('Hello World')                                                       
-
-        
-        cy.get('#submitMessage').should('be.visible').should('be.enabled').click()                   //click Submit button
-        cy.get('.alert').should('be.visible').should('have.text', 'Your message has been successfully sent to our team.')       //assert that success message displayed
-
+        cy.contains(cu.success_Message_Text).should('be.visible')                                          //assert that success message displayed
     })
 })

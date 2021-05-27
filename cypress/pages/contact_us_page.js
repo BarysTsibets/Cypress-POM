@@ -15,8 +15,8 @@ email_Field = '#email'
 order_Number = 'Order #123-456'
 message_Field = '#message'
 message_Text = 'Hello World'
-
-
+submit_Btn = '#submitMessage'
+success_Message_Text = 'Your message has been successfully sent to our team.'
 
 
 click_Contact_Us(){
@@ -28,7 +28,7 @@ select_CustomerService_DropDown(){
 }
 
 select_Webmaster_DropDown(){
-    return cy.get(this.drop_Down_btn).select(this.webmaster_Service_ToolTip)
+    return cy.get(this.drop_Down_btn).select(this.drop_Down_Webmaster_text)
 }
 
 enter_Email(mail){
@@ -42,8 +42,6 @@ enter_Order_Reference(order){
 enter_Message(msg){
     return cy.get(this.message_Field).clear().type(msg)
 }
-
-
-
 }
+
 export default ContactUs
