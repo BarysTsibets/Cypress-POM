@@ -2,6 +2,7 @@
 
 class ContactUs{
 
+    
 contack_Us_Btn = '#contact-link'
 contact_Us_title = 'Contact us - My Store'
 contact_BreadCrumb_Btn = '.navigation_page'
@@ -42,6 +43,7 @@ enter_Order_Reference(order){
 enter_Message(msg){
     return cy.get(this.message_Field).clear().type(msg)
 }
+
 }
 
 export default ContactUs
