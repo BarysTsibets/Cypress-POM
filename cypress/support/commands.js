@@ -33,11 +33,22 @@
 
 Cypress.Commands.add('login_function', (email, password) => {
 
-       
         cy.visit('http://automationpractice.com/index.php?controller=authentication&back=my-account')
 
         cy.get('#Email').clear().type(email)                                                                 // email stored in this.data.email variable
         cy.get('#Password').clear().should('be.visible').should('be.enabled').type(password)                // password stored in this.data.password variable
         cy.get('.button-1').should('be.visible').click()
+
+})
+
+
+Cypress.Commands.add('signIn_and_go_to_MainPage', (email, password) => {
+
+        cy.visit('http://automationpractice.com/index.php')
+        cy.get('.login').click()
+        cy.get('#email').clear().type(email)
+        cy.get('#passwd').clear().type(password)
+        cy.get('#SubmitLogin > span').click()
+        cy.get('.logo').click()
 
 })
