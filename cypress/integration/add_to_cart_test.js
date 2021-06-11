@@ -21,7 +21,7 @@ describe('Check Out Test Suit', function(){
 
         cy.get('.right-block > h5 > .product-name').click()  //Select Item
 
-        cy.get('.button-plus > span').click()    //increase Qty to 2
+        cy.get('.button-plus > span').click()                //increase Qty to 2
 
         cy.get('#group_1').select('M').should('have.value', '2')   // select M size from Drop Down
 
