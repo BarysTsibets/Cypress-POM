@@ -16,7 +16,7 @@ describe('Contact Us Test Suit', function(){
         cy.visit(this.data.baseURL)                                                                       //Open main page
 
         cu.click_Contact_Us()                                                                             // click on the Contact Us link                         
-    
+
         cy.title().should('eq', cu.contact_Us_title)                                                      // assert 'Contact Us' page title
 
         cy.get(cu.contact_BreadCrumb_Btn).should('be.visible').and('have.text', cu.contact_BreadCrumb_Text)     //Assert that 'contact' text shown at the breadcrumbs
