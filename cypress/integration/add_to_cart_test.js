@@ -1,7 +1,10 @@
-
 /// <reference types = "cypress"/>
+import ProductToCart from '../pages/product_to_cart_page'
+
 
 describe('Check Out Test Suit', function(){
+
+    const ptc = new ProductToCart()
 
     this.beforeEach(function(){
         cy.fixture('example').then(function(data){
@@ -19,7 +22,8 @@ describe('Check Out Test Suit', function(){
         cy.contains('Dresses').realHover()
         cy.contains('Evening Dresses').click({force:true})
 
-        cy.get('.right-block > h5 > .product-name').click()  //Select Item
+        ptc.dress_Product().click()                             //Select Item
+        //cy.get('.right-block > h5 > .product-name').click()  
 
         cy.get('.button-plus > span').click()                //increase Qty to 2
 
