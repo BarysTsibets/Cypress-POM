@@ -43,7 +43,8 @@ describe('Check Out Test Suit', function(){
         ptc.click_process_to_Checkout_Btn()                 // click Process CheckOut Button
         //cy.get('.button-medium > span').click()   
 
-        cy.title().should('eq', 'Order - My Store')
+        cy.title().should('eq', 'Order - My Store')            // assert cart page title 
+
         cy.get('.cart_description > .product-name > a').should('be.visible')
     })
     
