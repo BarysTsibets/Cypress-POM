@@ -34,11 +34,14 @@ describe('Check Out Test Suit', function(){
         ptc.change_Product_Color()      //select Pink color
         //cy.get('#color_24').click()   
 
-        cy.get('#thumb_11').should('be.visible')   // Img with Pink Dress presented
+        ptc.pink_Dress_Img().should('be.visible')                   // Img with Pink Dress presented
+        //cy.get('#thumb_11').should('be.visible')   
 
-        
-        cy.get('.exclusive > span').click()       // Click "Add to Cart" Button
-        cy.get('.button-medium > span').click()   // click Process CheckOut Button
+        ptc.click_Add_to_Cart_Btn()                         // Click "Add to Cart" Button
+        //cy.get('.exclusive > span').click()       
+
+        ptc.click_process_to_Checkout_Btn()                 // click Process CheckOut Button
+        //cy.get('.button-medium > span').click()   
 
         cy.title().should('eq', 'Order - My Store')
         cy.get('.cart_description > .product-name > a').should('be.visible')
