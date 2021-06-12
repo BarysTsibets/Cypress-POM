@@ -47,5 +47,4 @@ describe('Check Out Test Suit', function(){
         cy.get(ptc.product_in_cart).should('be.visible')
     })
     
-
 })
