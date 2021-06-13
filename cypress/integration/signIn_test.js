@@ -3,7 +3,7 @@ import SignIn from "../pages/sign_in_page"
 
 describe ('SignIn test suit', function(){
 
-    const sIn = new SignIn()
+    const sIn = new SignIn()                                                     // Create sIn object from SignIn class
 
     this.beforeEach(function(){
         cy.fixture('example').then(function(data){
@@ -16,7 +16,6 @@ describe ('SignIn test suit', function(){
         cy.visit(this.data.signInPage)                                            // open SignIn Page
 
         sIn.enterEmailToSignIn(this.data.test_signIn_email)                       //fill email in SignIn field
-
 
         sIn.enterPasswordToSignIn(this.data.password)                             //fill password in SignIn field
 
