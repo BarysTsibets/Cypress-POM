@@ -2,7 +2,6 @@
 
 class CheckOut{
 
-
 }
 
 export default CheckOut
