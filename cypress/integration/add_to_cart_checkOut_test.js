@@ -86,6 +86,8 @@ describe('Check Out Test Suit', function(){
         cy.contains('Bank-wire payment.').should('be.visible')                              //assertr that 'Pay by Bank wire' page presented
         cy.get('#cart_navigation > .button > span').should('be.visible').click()                      //click "I confirm my order" button
 
+        cy.contains('Your order on My Store is complete.').should('be.visible')             //'Your order on My Store is complete.' text presented
+
     })
 
 
