@@ -52,3 +52,4 @@ Cypress.Commands.add('signIn_and_go_to_MainPage', (email, password) => {
         cy.get('.logo').click()
 
 })
+
