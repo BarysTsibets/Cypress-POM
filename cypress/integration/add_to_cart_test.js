@@ -60,24 +60,31 @@ describe('Check Out Test Suit', function(){
         ptc.pink_Dress_Img().should('be.visible')                              // Img with Pink Dress presented
         ptc.click_Add_to_Cart_Btn()                                            // Click "Add to Cart" Button
         ptc.click_process_to_Checkout_Btn()                                    // click Process CheckOut Button
-                    //Assertions//
+                    //Assertions  - Cart page presented and Product added to cart
         cy.title().should('eq', 'Order - My Store')                            // assert cart page title 
         cy.get(ptc.product_in_cart).should('be.visible')
 
                        //Check Out flow
         cy.scrollTo('bottom')
         cy.get('.cart_navigation > .button > span').should('be.visible').click()           //click Process To CheckOuy Button
+                       //Adress page
         cy.get('.navigation_page').should('have.text', 'Addresses').should('be.visible')   //assertr that Adress page presented
-
         cy.scrollTo('bottom')                                                       
         cy.get('.cart_navigation > .button > span').should('be.visible').click()           //click Process To CheckOuy Button    
+                    //Shipping Page
         cy.get('.navigation_page').should('have.text','Shipping').should('be.visible')     //assertr that Shipping page presented
-
+                    
         cy.get('.cart_navigation > .button > span').should('be.visible').click()            //click Process To CheckOuy Button withoutterms agreement
-        cy.contains('You must agree to the terms of service before continuing.').should('be.visible')
-
-        //cy.get('#cgv').check().should('be.checked')                                        //check Delivery Terms and Conditions checkbox
-        //cy.get('.cart_navigation > .button > span').should('be.visible').click()           //click Process To CheckOuy Button  
+        cy.contains('You must agree to the terms of service before continuing.').should('be.visible')   // Alert windw appear
+        cy.get('.fancybox-item').click()                                                                //close alert window       
+    
+        cy.get('#cgv').check().should('be.checked')                                        //check Delivery Terms and Conditions checkbox
+        cy.get('.cart_navigation > .button > span').should('be.visible').click()           //click Process To CheckOuy Button  
+                    //Payment Page
+        cy.contains('Your payment method').should('be.visible')                            //assertr that Payment page presented
+        cy.get('.bankwire').click()                                                         //click "Pay by Bank wire" button
+        cy.contains('Bank-wire payment.').should('be.visible')                              //assertr that 'Pay by Bank wire' page presented
+        cy.get('#cart_navigation > .button > span').should('be.visible').click()                      //click "I confirm my order" button
 
     })
 
