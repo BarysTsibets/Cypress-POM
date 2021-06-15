@@ -69,6 +69,12 @@ describe('Check Out Test Suit', function(){
         cy.get('.cart_navigation > .button > span').should('be.visible').click()           //click Process To CheckOuy Button
         cy.get('.navigation_page').should('have.text', 'Addresses').should('be.visible')   //assertr that Adress page presented
 
+        cy.scrollTo('bottom')                                                       
+        cy.get('.cart_navigation > .button > span').should('be.visible').click()           //click Process To CheckOuy Button    
+        cy.get('.navigation_page').should('have.text','Shipping').should('be.visible')     //assertr that Shipping page presented
+        cy.get('#cgv').check().should('be.checked')                                        //check Delivery Terms and Conditions checkbox
+        cy.get('.cart_navigation > .button > span').should('be.visible').click()           //click Process To CheckOuy Button  
+
     })
 
 
